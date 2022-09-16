@@ -4,6 +4,7 @@
   flex-wrap: wrap;
   justify-content: space-between;
   // align-content: space-between;
+
 }
 
 .card {
@@ -55,4 +56,35 @@
 
 .star-empty {
   filter: invert(71%) sepia(14%) saturate(0%) hue-rotate(185deg) brightness(91%) contrast(84%);
+}
+
+.bandcamp {
+  width: 40%;
+  height: 750px;
+}
+
+.music-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-left: calc(2 * #{$grid-gutter});
+  flex: 2;
+
+  h2 {
+    border-bottom: 1px solid $color-gray;
+    margin-bottom: $grid-gutter;
+    padding-bottom: .5rem;
+  }
+}
+
+.music-video {
+  display: flex;
+  width: 100%;
+  height: 400px;
+  padding-top: $grid-gutter;
+
+  iframe {
+    margin: 0 auto;
+    width: 100%;
+  }
 }

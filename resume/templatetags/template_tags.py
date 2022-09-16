@@ -33,7 +33,6 @@ def get_skills():
     context = {}
     superskills = SuperSkill.objects.order_by('-level')
 
-    print("HELLOOOO")
     if superskills:
         context['skills'] = []
         for superskill in superskills:
@@ -46,3 +45,6 @@ def get_skills():
                 })
     
     return context
+@register.inclusion_tag('resume/music-tag.html')
+def get_music():
+    return {}

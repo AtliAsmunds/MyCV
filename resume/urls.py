@@ -13,4 +13,7 @@ urlpatterns = [
   path("work/", views.ShowWork.as_view(), name="work"),
   path('skills/', views.ShowSkills.as_view(), name="skills"),
   path('skills-tag/', views.ShowSkillsTag.as_view(), name="skills-tag"),
+  path("music/", views.ShowMusic.as_view(), name="music"),
+  path("music-tag/", views.ShowMusicTag.as_view(), name="music-tag"),
+
 ]

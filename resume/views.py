@@ -60,3 +60,14 @@ class ShowWorkTag(View):
         works = Work.objects.order_by('-year_start', '-year_end')
         if works:
             return render(request, 'resume/work-tag.html', {'works': works})
+
+
+class ShowMusic(View):
+
+    def get(self, request: HttpRequest):
+        return render(request, 'resume/music.html')
+
+class ShowMusicTag(View):
+
+    def get(self, request: HttpRequest):
+        return render(request, 'resume/music-tag.html')
