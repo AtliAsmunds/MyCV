@@ -1,0 +1,41 @@
+{% load static %}
+
+<div class="title">
+  <img src="{% static 'svgs/lightbulb.svg' %}" alt="" class="title-icon">
+  <h1>HÆFNI</h1>
+</div>
+{% if skills %}
+  <div class="card-container">
+    {% for skill in skills %}
+      <div class="card skill-card">
+        <div class="card-content">
+          <div class="card-header">
+            {{ skill.superskill|capfirst }}
+            {% if skill.superskill.level %}
+              <span level="{{ skill.superskill.level }}" class="stars">
+                <img class="star-empty" src="{% static 'svgs/star.svg' %}" alt="">
+                <img class="star-empty" src="{% static 'svgs/star.svg' %}" alt="">
+                <img class="star-empty" src="{% static 'svgs/star.svg' %}" alt="">
+                <img class="star-empty" src="{% static 'svgs/star.svg' %}" alt="">
+                <img class="star-empty" src="{% static 'svgs/star.svg' %}" alt="">
+              </span>
+            {% endif %}
+          </div>
+          {% for subskill in skill.subskills %}
+            <h4>
+              {{ subskill|capfirst }}
+                <span level="{{ subskill.level }}" class="stars">
+                  <img class="star-empty" src="{% static 'svgs/star.svg' %}" alt="">
+                  <img class="star-empty" src="{% static 'svgs/star.svg' %}" alt="">
+                  <img class="star-empty" src="{% static 'svgs/star.svg' %}" alt="">
+                  <img class="star-empty" src="{% static 'svgs/star.svg' %}" alt="">
+                  <img class="star-empty" src="{% static 'svgs/star.svg' %}" alt="">
+              </span>
+            </h4> 
+          {% endfor %}
+
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+{% endif %}

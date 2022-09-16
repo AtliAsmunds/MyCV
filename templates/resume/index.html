@@ -1,0 +1,26 @@
+{% extends 'resume/base.html' %}
+{% load template_tags %}
+
+{% block title_block %}
+  Atli Snær
+{% endblock title_block %}
+
+{% block body_block %}
+
+{% if skills %}
+
+  {% for skill in skills %}
+    <h2 class="superskill-name">
+      {{ skill.name|capfirst }}
+      {% if skill.level %}
+        - {{ skill.level }}
+      {% endif %}
+    </h2>
+    {% get_subskills skill.id %}
+  {% endfor %}
+
+{% else %}
+
+{% endif %}
+
+{% endblock body_block %}

@@ -1,0 +1,35 @@
+{% load static %}
+
+<div class="title">
+  <img src="{% static 'svgs/briefcase.svg' %}" alt="" class="title-icon">
+  <h1>REYNSLA</h1>
+</div>
+{% if works %}
+  <div class="card-container">
+  {% for work in works %}
+    <div class="work-card card">
+    <span class="year">
+      {% if work.year_start == work.year_end %}
+        {{ work.year_start }}
+      {% else %}
+        {{ work.year_start }} -
+        {% if work.year_end %}
+          {{ work.year_end }}
+        {% else %}
+          present
+        {% endif %}
+      {% endif %}
+    </span>
+    <div class="card-content">
+      <span class="card-header">
+        {{ work.title }}
+      </span>
+      <h4>{{ work.work_place}}</h4>
+      {% if work.description %}
+        <p>{{ work.description }}</p>
+      {% endif %}
+    </div>
+  </div>
+  {% endfor %}
+  </div>
+{% endif %}

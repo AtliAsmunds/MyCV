@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "web_dev"
+version = "0.1.0"
+description = "A virtual env for web development"
+authors = ["AtliAsmunds <atliasmunds@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+Django = "^4.1"
+psycopg2 = "^2.9.3"
+python-dotenv = "^0.21.0"
+
+[tool.poetry.dev-dependencies]
+django-sass-compiler = "^1.1.0"
+django-livereload-server = "^0.4"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

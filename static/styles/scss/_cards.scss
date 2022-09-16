@@ -1,0 +1,58 @@
+.card-container {
+  grid-column: 1/-1;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  // align-content: space-between;
+}
+
+.card {
+  // grid-column: span calc(#{$grid-desktop-columns}/2);
+  width: calc(50% - 5*#{$grid-gutter});
+  display: flex;
+  background-color: white;
+  margin: 0 auto;
+  margin-bottom: $card-padding;
+  padding: $card-padding;
+  border-radius: 5px;
+  transition: box-shadow 200ms ease-in-out;
+
+  &:hover {
+    box-shadow: 3px 4px 16px 3px rgba(0, 0, 0, 0.25);
+  }
+}
+
+.card-content {
+  margin-left: $grid-gutter;
+  flex: 2;
+  
+  >* {
+    margin-bottom: $grid-gutter;
+  }
+
+  h4 {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  border-bottom: 1px solid $color-card-sep-gray;
+  padding-bottom: $grid-gutter;
+}
+
+.stars {
+  display: inline-flex;
+  margin-left: .5rem;
+}
+
+.star-full {
+  filter: invert(95%) sepia(71%) saturate(3933%) hue-rotate(317deg) brightness(104%) contrast(96%);
+}
+
+.star-empty {
+  filter: invert(71%) sepia(14%) saturate(0%) hue-rotate(185deg) brightness(91%) contrast(84%);
+}

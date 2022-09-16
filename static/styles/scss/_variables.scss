@@ -1,0 +1,26 @@
+$border-radius: 5px;
+$default-font-size: 16px;
+
+$grid-gutter: 20px;
+$grid-desktop-columns: 12;
+$grid-margin: 20vw;
+$main-margin: 4rem;
+
+$nav-item-font-size-max: 2rem;
+$nav-item-font-size-min: 1rem;
+$nav-list-height: 5rem;
+
+$footer-line-width: calc(100vw - 2 * #{$grid-margin} + 2 * #{$grid-gutter});
+
+$color-beige: #F9F7F4;
+$color-beige-hover: #bdbbb9;
+$color-gray: #414141;
+$color-card-sep-gray: #D9D9D9;
+
+$icon-filter: invert(94%) sepia(6%) saturate(489%) hue-rotate(319deg) brightness(106%) contrast(95%);
+$icon-filter-hover: invert(30%) sepia(6%) saturate(89%) hue-rotate(349deg) brightness(95%) contrast(88%);
+$icon-title-height: 95px;
+  
+$title-bottom-margin: calc(#{$main-margin} - #{$grid-gutter});
+
+$card-padding: 2rem;

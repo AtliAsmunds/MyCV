@@ -1,0 +1,13 @@
+# Env and editor related
+.venv
+.vscode
+.env
+
+# Database
+db.sqlite3
+
+# Python cache
+__pycache__
+
+# Node dependencies
+node_modules

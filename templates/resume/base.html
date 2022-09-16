@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static '/styles/css/styles.css' %}">
+  <title>
+    {% block title_block %}
+      Index
+    {% endblock title_block %}
+  </title>
+</head>
+<body>
+    <nav>
+      <ul class="nav-list">
+        <li class="nav-item" id="about">UM MIG</li>
+        <li class="nav-item" id="education">MENNTUN</li>
+        <li class="nav-item" id="work">REYNSLA</li>
+        <li class="nav-item" id="skills">HÆFNI</li>
+        <li class="nav-item" id="music">TÓNLIST</li>
+        <li class="nav-item" id="contact">HAFA SAMBAND</li>
+      </ul>
+      <div class="separator"></div>
+    </nav>
+  <div class="grid-wrapper">
+    <div class="grid-container">
+    {% block body_block %}
+    
+    {% endblock body_block %}
+    </div>
+  </div>
+  <footer>
+    <div class="footer-wrapper">
+      <div class="footer-content">
+        <h3>HLEKKIR</h3>
+        <div class="footer-links">
+          <a href="https://www.facebook.com/atliasmunds/">
+            <img class="icon" src="{% static 'svgs/facebook.svg' %}" alt="">
+            /atliasmunds on Facebook
+          </a>
+          <a href="https://www.instagram.com/atlibassi/">
+            <img src="{% static 'svgs/instagram.svg' %}" alt="" class="icon">
+            @atlibassi on Instagram
+          </a>
+          <a href="https://github.com/AtliAsmunds">
+            <img src="{% static 'svgs/github.svg' %}" alt="" class="icon">
+            /AtliAsmunds on GitHub
+          </a>
+          <a href=".">Hafa Samband</a>
+        </div>
+        <span class="footer-info">Gert með Django 4.1 og jQuery 3.6.</span>
+      </div>
+    </div>
+  </footer>
+  <script src="{% static 'js/jquery-3.6.1.min.js' %}"></script>
+  <script src="{% static 'js/ajax.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+@import 'variables';
+@font-face {
+  font-family: "Raleway";
+  src: url('../fonts/Raleway-VariableFont_wght.ttf');
+  font-style: normal;
+}
+
+body {
+  color: $color-gray;
+  font-family: "Raleway";
+}
+
+h1 {
+  font-size: clamp(1rem, 6vw, 3rem);
+}
+
+h2 {
+  font-size: clamp(1rem, 4vw, 2.5rem);
+}
+
+h3 {
+  font-size: clamp(.5rem, 2vw, 2rem);
+  font-weight: 400;
+}
+
+h4 {
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  font-weight: 400;
+}
+
+p {
+  line-height: 1.5rem;
+}
+
+.card-header {
+  font-size: clamp(1rem, 2vw, 2rem);
+  font-weight: 600;
+}
+
+.card-content p {
+  font-weight: 300;
+}
+
+.year {
+  line-height: clamp(1rem, 3vw, 2.5rem);
+  font-style: italic;
+}

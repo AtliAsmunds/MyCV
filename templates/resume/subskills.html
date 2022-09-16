@@ -1,0 +1,12 @@
+<ul>
+  {% if subskills %} {% for skill in subskills %}
+  <li class="subskill-item">
+    <span class="container">
+      <span class="subskill-level" level="{{ skill.level }}"></span>
+    </span>
+    <span>{{ skill.name }}</span>
+  </li>
+  {% endfor %} {% else %}
+  <p>No subskills were found.</p>
+  {% endif %}
+</ul>

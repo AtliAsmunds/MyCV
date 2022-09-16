@@ -1,0 +1,17 @@
+.title {
+  display: flex;
+  grid-column: 1/-1;
+  justify-content: center;
+  margin-bottom: $title-bottom-margin;
+
+  h1 {
+    line-height: $icon-title-height;
+    margin-left: calc(#{$grid-gutter}/2);
+  }
+}
+
+.title-icon {
+  height: $icon-title-height;
+  margin-right: calc(#{$grid-gutter}/2);
+}
+

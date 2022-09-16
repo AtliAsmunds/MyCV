@@ -1,0 +1,47 @@
+@import 'variables';
+
+nav {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+
+.nav-list {
+  display: flex;
+  margin-right: $grid-margin;
+  margin-left: $grid-margin;
+  height: $nav-list-height;
+  list-style-type: none;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-item {
+  font-size: clamp($nav-item-font-size-min, 1vw, $nav-item-font-size-max);
+  text-align: center;
+  
+  &::after {
+    display: block;
+    content: '';
+    border-bottom: solid 2px $color-gray;
+    transform: scaleX(0);
+    transition: transform 250ms ease-in-out;
+  }
+
+  &:hover::after {
+    transform: scaleX(1);
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+
+}
+
+.separator {
+  display: block;
+  border-bottom: 1px black solid;
+  width: calc(60% + 2 * #{$grid-gutter});
+  align-self: center;
+  // height: 1px;
+}
