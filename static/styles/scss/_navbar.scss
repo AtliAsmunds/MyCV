@@ -2,8 +2,22 @@
 
 nav {
   display: flex;
-  width: 100%;
+  width: 100vw;
   flex-direction: column;
+
+  @media (max-width: $max-mobile-size) {
+    position: fixed;
+    transform: translateY(-100%);
+    top: 0;
+    left: 0;
+    z-index: 99;
+    background: $color-gray;
+    color: $color-beige;
+
+    padding: $grid-gutter 0;
+    transition: transform 300ms ease-in-out;
+
+  }
 }
 
 .nav-list {
@@ -14,6 +28,11 @@ nav {
   list-style-type: none;
   justify-content: space-between;
   align-items: center;
+
+  @media (max-width: $max-mobile-size) {
+    flex-direction: column;
+    height: fit-content;
+  }
 }
 
 .nav-item {
@@ -36,6 +55,14 @@ nav {
     cursor: pointer;
   }
 
+  @media (max-width: $max-mobile-size) {
+    margin: $grid-gutter 0;
+
+    &:hover {
+      color: $color-beige-hover;
+    }
+  }
+
 }
 
 .separator {
@@ -44,4 +71,42 @@ nav {
   width: calc(60% + 2 * #{$grid-gutter});
   align-self: center;
   // height: 1px;
+}
+
+.hamburger {
+  display: none;
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  padding: 4px;
+  border: none;
+  border-radius: $border-radius;
+  background: none;
+  transition: background 100ms ease-in-out;
+  cursor: pointer;
+  z-index: 999;
+  transition: display 300ms ease-in-out;
+
+  &:hover {
+    background: $color-beige-hover;
+  }
+
+  @media (max-width: $max-mobile-size) {
+    display: block;
+  }
+}
+
+.menuIcon {
+  display: none;
+  @media (max-width: $max-mobile-size) {
+    display: block;
+  } 
+}
+
+.closeIcon {
+  display: none;
+}
+
+.showMenu {
+  transform: translateY(0);
 }

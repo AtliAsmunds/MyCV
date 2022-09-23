@@ -16,10 +16,11 @@ body {
 }
 
 .grid-wrapper {
-  margin-left: $grid-margin;
-  margin-right: $grid-margin;
-  margin-top: $main-margin;
-  margin-bottom: $main-margin;
+  margin: $main-margin $grid-margin;
+
+  @media (max-width:$max-mobile-size) {
+    margin: $main-margin calc(#{$grid-margin} / 2)
+  }
 }
 
 .grid-container {
@@ -28,7 +29,7 @@ body {
   // height: 100%;
   gap: $grid-gutter;
   width: 100%;
-  p {
+  >p {
     grid-column: 1/-1;
     text-align: justify;
   }
@@ -41,14 +42,22 @@ body {
   align-items: center;
   gap: $grid-gutter;
   margin-bottom: 3rem;
-  // height: calc(100vh - 3 * #{$nav-list-height});
 
   img {
     object-fit: contain;
     grid-column: span 5;
     // max-height: 100%;
     width: 100%;
+
+    @media (max-width: $max-mobile-size) {
+      grid-column: 1/-1;
+    }
   }
+
+  @media (max-width: $max-mobile-size) {
+    margin-bottom: 0;
+  }
+
 }
 
 .main-text {
@@ -59,5 +68,9 @@ body {
 
   h1 {
     padding-bottom: 1rem;
+  }
+
+  @media (max-width: $max-mobile-size) {
+    grid-column: 1/-1;
   }
 }

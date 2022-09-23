@@ -1,0 +1,52 @@
+@import 'variables';
+
+.form-wrapper {
+  grid-column: 1/-1;
+
+  >h3 {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin: 0 auto;
+
+  >* {
+    margin-bottom: $grid-gutter;
+  }
+}
+
+input {
+  align-self: flex-start;
+  width: 100%;
+}
+
+textarea {
+  width: 100%;
+  resize:  none;
+}
+
+input, textarea {
+  padding: .5rem;
+  border-radius: $border-radius;
+  box-shadow: none;
+}
+
+.button {
+  border: none;
+  color: $color-beige;
+  background: $color-gray;
+  cursor: pointer;
+  transition: all 100ms ease-in-out;
+  width: fit-content;
+  padding: 1rem 1.5rem;
+
+  &:hover {
+    background: $color-beige-hover;
+    color: $color-gray;
+  }
+}

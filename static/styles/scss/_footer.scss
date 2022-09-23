@@ -20,6 +20,10 @@ footer {
   margin-right: $grid-margin;
   justify-content: center;
   height: 100%;
+
+  @media (max-width: $max-mobile-size) {
+    margin: 0 calc(#{$grid-margin} / 2);
+  }
 }
 
 .footer-content {
@@ -48,10 +52,12 @@ footer {
   padding: 1rem;
   // justify-content: space-between;
 
-  a {
+  a:not(:last-of-type) {
+    display: flex;
     line-height: 32px;
     width: 100%;
-    text-align: center;
+    align-items: center;
+    // text-align: center;
 
     &:hover {
       color: $color-beige-hover;
@@ -66,10 +72,11 @@ footer {
 
 .footer-info {
   align-self: stretch;
+  text-align: center;
 }
 
 .icon {
-  float: left;
+  // float: left;
   width: 32px;
   height: 32px;
   margin-right: 1rem;

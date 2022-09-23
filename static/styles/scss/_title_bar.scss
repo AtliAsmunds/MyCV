@@ -8,6 +8,14 @@
     line-height: $icon-title-height;
     margin-left: calc(#{$grid-gutter}/2);
   }
+
+  @media (max-width: $max-tablet-size) {
+    flex-direction: column;
+
+    h1 {
+      margin: 0 auto;
+    }
+  }
 }
 
 .title-icon {

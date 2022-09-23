@@ -5,6 +5,10 @@
   justify-content: space-between;
   // align-content: space-between;
 
+  @media (max-width: $max-tablet-size) {
+    width: 100%;
+  }
+
 }
 
 .card {
@@ -21,11 +25,16 @@
   &:hover {
     box-shadow: 3px 4px 16px 3px rgba(0, 0, 0, 0.25);
   }
+
+  @media (max-width: $max-tablet-size) {
+    width: 100%;
+  }
 }
 
 .card-content {
   margin-left: $grid-gutter;
   flex: 2;
+  width: 100%;
   
   >* {
     margin-bottom: $grid-gutter;
@@ -47,7 +56,9 @@
 
 .stars {
   display: inline-flex;
-  margin-left: .5rem;
+  justify-content: flex-end;
+  line-height: 1rem;
+  height: clamp(.5rem, 2vw, 2rem)
 }
 
 .star-full {
@@ -61,6 +72,12 @@
 .bandcamp {
   width: 40%;
   height: 750px;
+
+  @media (max-width: $max-tablet-size) {
+    margin: 0 auto $grid-gutter;
+    width: 60%;
+    height: 600px;
+  }
 }
 
 .music-info {
@@ -75,6 +92,16 @@
     margin-bottom: $grid-gutter;
     padding-bottom: .5rem;
   }
+
+  p {
+    text-align: justify;
+  }
+
+  @media (max-width: $max-tablet-size) {
+    width: 100%;
+    flex: none;
+    padding-left: 0;
+  }
 }
 
 .music-video {
@@ -87,4 +114,5 @@
     margin: 0 auto;
     width: 100%;
   }
+
 }
