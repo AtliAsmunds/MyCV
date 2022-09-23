@@ -43,7 +43,16 @@ jQuery(function () {
     armPage('work');
     armPage('education');
     armPage('skills');
+    armPage('music');
+    armPage('email');
     setStars();
+    $('textarea').on('input', function () {
+        $(this).height("");
+        var scrollHeight = $(this).prop('scrollHeight');
+        $(this).height(scrollHeight);
+    });
+    $('.nav-item').on('click', handleMenu);
+    $('.hamburger').on('click', handleMenu);
     window.onpopstate = function () {
         var id = window.location.pathname;
         if (id === '/') {
@@ -84,6 +93,9 @@ function renderPage(elemId, back) {
                 case 5:
                     if (data) {
                         $(".grid-container").html(data);
+                        $("html").animate({
+                            scrollTop: 0
+                        }, 1000);
                         if (!back)
                             window.history.pushState('', '', "/".concat(elemId, "/"));
                         if (elemId == 'skills')
@@ -112,5 +124,18 @@ function setStars() {
             }
         });
     });
+}
+function handleMenu() {
+    var nav = $('nav');
+    if (nav.hasClass('showMenu')) {
+        nav.removeClass('showMenu');
+        $('.closeIcon').css('display', 'none');
+        $('.menuIcon').css('display', 'block');
+    }
+    else {
+        nav.addClass('showMenu');
+        $('.closeIcon').css('display', 'block');
+        $('.menuIcon').css('display', 'none');
+    }
 }
 //# sourceMappingURL=ajax.js.map
