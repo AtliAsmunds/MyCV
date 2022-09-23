@@ -6,6 +6,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="{% static '/styles/css/styles.css' %}">
   <title>
     {% block title_block %}
@@ -21,10 +22,14 @@
         <li class="nav-item" id="work">REYNSLA</li>
         <li class="nav-item" id="skills">HÆFNI</li>
         <li class="nav-item" id="music">TÓNLIST</li>
-        <li class="nav-item" id="contact">HAFA SAMBAND</li>
+        <li class="nav-item" id="email">HAFA SAMBAND</li>
       </ul>
       <div class="separator"></div>
     </nav>
+    <button class="hamburger">
+      <i class="menuIcon material-icons">menu</i>
+      <i class="closeIcon material-icons">close</i>
+    </button>
   <div class="grid-wrapper">
     <div class="grid-container">
     {% block body_block %}
@@ -37,17 +42,17 @@
       <div class="footer-content">
         <h3>HLEKKIR</h3>
         <div class="footer-links">
-          <a href="https://www.facebook.com/atliasmunds/">
+          <a target="_blank" href="https://www.facebook.com/atliasmunds/">
             <img class="icon" src="{% static 'svgs/facebook.svg' %}" alt="">
-            /atliasmunds on Facebook
+            /atliasmunds
           </a>
-          <a href="https://www.instagram.com/atlibassi/">
+          <a target="_blank" href="https://www.instagram.com/atlibassi/">
             <img src="{% static 'svgs/instagram.svg' %}" alt="" class="icon">
-            @atlibassi on Instagram
+            @atlibassi
           </a>
-          <a href="https://github.com/AtliAsmunds">
+          <a target="_blank"href="https://github.com/AtliAsmunds">
             <img src="{% static 'svgs/github.svg' %}" alt="" class="icon">
-            /AtliAsmunds on GitHub
+            /AtliAsmunds
           </a>
           <a href=".">Hafa Samband</a>
         </div>

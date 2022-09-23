@@ -1,0 +1,17 @@
+{% load static %}
+
+<div class="title">
+  <img src="{% static 'svgs/email.svg' %}" alt="" class="title-icon">
+  <h1>HAFA SAMBAND</h1>
+</div>
+<div class="form-wrapper">
+  {% if posted %}
+    <h3>Skilaboð móttekin!</h3>
+  {% else %}
+  <form action="." method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input class="button" type="submit" value="Senda Póst">
+  </form> 
+  {% endif %}
+</div>

@@ -1,6 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.urls import reverse
 from django.http import HttpResponse, HttpRequest
 from resume.models import Skill, SuperSkill, Education, Work
+from resume.forms import EmailForm
+from resume.utils import send_email
 from django.views import View
 
 # Create your views here.
@@ -71,3 +74,31 @@ class ShowMusicTag(View):
 
     def get(self, request: HttpRequest):
         return render(request, 'resume/music-tag.html')
+
+class ShowEmail(View):
+
+    def get(self, request: HttpRequest):
+        form = EmailForm()
+        return render(request, 'resume/email.html', {'form': form})
+    
+    def post(self, request: HttpRequest):
+        form = EmailForm(request.POST)
+
+        if form.is_valid():
+            cleaned = form.cleaned_data
+            email_sent = send_email(
+                                cleaned.get('name'),
+                                cleaned.get('email'),
+                                cleaned.get('message'))
+            
+
+            return render(request, 'resume/email.html', {'form': form})
+        else:
+            print(form.errors)
+            return render(request, 'resume/email.html')
+
+
+class ShowEmailTag(View):
+    def get(self, request: HttpRequest):
+        form = EmailForm()
+        return render(request, 'resume/email-tag.html', {'form': form})

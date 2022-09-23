@@ -15,5 +15,6 @@ urlpatterns = [
   path('skills-tag/', views.ShowSkillsTag.as_view(), name="skills-tag"),
   path("music/", views.ShowMusic.as_view(), name="music"),
   path("music-tag/", views.ShowMusicTag.as_view(), name="music-tag"),
-
+  path("email/", views.ShowEmail.as_view(), name="email"),
+  path("email-tag/", views.ShowEmailTag.as_view(), name="email-tag"),
 ]

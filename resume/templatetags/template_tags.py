@@ -1,4 +1,5 @@
 from django import template
+from resume.forms import EmailForm
 from resume.models import Skill, SuperSkill, Education, Work
 
 register = template.Library()
@@ -48,3 +49,7 @@ def get_skills():
 @register.inclusion_tag('resume/music-tag.html')
 def get_music():
     return {}
+
+@register.inclusion_tag('resume/email-tag.html')
+def get_email(form: EmailForm):
+    return {'form': form, 'posted': form.is_bound}
