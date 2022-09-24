@@ -42,11 +42,17 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'livereload',
+    # 'livereload',
     'django.contrib.staticfiles',
-    'django_sass_compiler',
+    # 'django_sass_compiler',
     'resume',
 ]
+
+if DEBUG:
+    INSTALLED_APPS += [
+        'livereload',
+        'django_sass_compiler',
+    ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -56,9 +62,13 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'livereload.middleware.LiveReloadScript',
+    # 'livereload.middleware.LiveReloadScript',
 ]
 
+if DEBUG:
+    MIDDLEWARE += [
+        'livereload.middleware.LiveReloadScript',
+]
 
 ROOT_URLCONF = 'my_webpage_project.urls'
 
