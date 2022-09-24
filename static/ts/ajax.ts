@@ -1,10 +1,5 @@
 
 jQuery(() => {
-  const navHeight = $('nav').outerHeight();
-  const footerHeight = $('footer').outerHeight();
-  const minHeight = `calc(100vh - ${navHeight + footerHeight}px)`;
-  $('.grid-wrapper').css("min-height", minHeight)
-
   armPage('about');
   armPage('work');
   armPage('education');

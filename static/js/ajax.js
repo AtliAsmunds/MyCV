@@ -34,10 +34,6 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-var navHeight = $('nav').outerHeight();
-var footerHeight = $('footer').outerHeight();
-var minHeight = "calc(100vh - ".concat(navHeight + footerHeight, "px)");
-$('.grid-wrapper').css("min-height", minHeight);
 jQuery(function () {
     armPage('about');
     armPage('work');
