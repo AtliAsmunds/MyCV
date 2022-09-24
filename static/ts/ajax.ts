@@ -1,12 +1,4 @@
 
-const titles = {
-  about: 'Um Mig',
-  work: 'Reynsla',
-  education: 'Menntun',
-  skills: 'Hæfni',
-  music: 'Tónlist',
-  email: 'Hafa Samband',
-}
 
 jQuery(() => {
   armPage('about');
@@ -45,6 +37,14 @@ jQuery(() => {
 })
 
 async function renderPage(elemId: string, back = false) {
+  const titles = {
+    about: 'Um Mig',
+    work: 'Reynsla',
+    education: 'Menntun',
+    skills: 'Hæfni',
+    music: 'Tónlist',
+    email: 'Hafa Samband',
+  }
   let data;
   const url = `/${elemId}-tag/`
   try {
@@ -61,7 +61,7 @@ async function renderPage(elemId: string, back = false) {
   if (data) {
     type TitleKey = keyof typeof titles;
     const key = elemId as TitleKey
-    
+
     $('title').html(titles[key])
     $(".grid-container").html(data);
     $("html").animate({
