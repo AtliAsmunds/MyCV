@@ -1,4 +1,13 @@
 
+const titles = {
+  about: 'Um Mig',
+  work: 'Reynsla',
+  education: 'Menntun',
+  skills: 'Hæfni',
+  music: 'Tónlist',
+  email: 'Hafa Samband',
+}
+
 jQuery(() => {
   armPage('about');
   armPage('work');
@@ -50,6 +59,10 @@ async function renderPage(elemId: string, back = false) {
     data = null;
   }
   if (data) {
+    type TitleKey = keyof typeof titles;
+    const key = elemId as TitleKey
+    
+    $('title').html(titles[key])
     $(".grid-container").html(data);
     $("html").animate({
       scrollTop: 0

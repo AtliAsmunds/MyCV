@@ -34,6 +34,14 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
+var titles = {
+    about: 'Um Mig',
+    work: 'Reynsla',
+    education: 'Menntun',
+    skills: 'Hæfni',
+    music: 'Tónlist',
+    email: 'Hafa Samband'
+};
 jQuery(function () {
     armPage('about');
     armPage('work');
@@ -63,7 +71,7 @@ jQuery(function () {
 function renderPage(elemId, back) {
     if (back === void 0) { back = false; }
     return __awaiter(this, void 0, void 0, function () {
-        var data, url, response, e_1;
+        var data, url, response, e_1, key;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
@@ -88,6 +96,8 @@ function renderPage(elemId, back) {
                     return [3, 5];
                 case 5:
                     if (data) {
+                        key = elemId;
+                        $('title').html(titles[key]);
                         $(".grid-container").html(data);
                         $("html").animate({
                             scrollTop: 0
