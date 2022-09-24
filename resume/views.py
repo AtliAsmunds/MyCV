@@ -57,12 +57,14 @@ class ShowEducationTag(View):
         degrees = Education.objects.order_by('-year_start', '-year_end')
         if degrees:
             return render(request, 'resume/education-tag.html', {'degrees': degrees})
+        return render(request, 'resume/education-tag.html')
 class ShowWorkTag(View):
 
     def get(self, request: HttpRequest):
         works = Work.objects.order_by('-year_start', '-year_end')
         if works:
             return render(request, 'resume/work-tag.html', {'works': works})
+        return render(request, 'resume/work-tag.html')
 
 
 class ShowMusic(View):
