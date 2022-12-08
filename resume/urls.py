@@ -17,4 +17,5 @@ urlpatterns = [
   path("music-tag/", views.ShowMusicTag.as_view(), name="music-tag"),
   path("email/", views.ShowEmail.as_view(), name="email"),
   path("email-tag/", views.ShowEmailTag.as_view(), name="email-tag"),
+  path("secret-santa/", views.ShowSecretSanta.as_view(), name="secret-santa")
 ]

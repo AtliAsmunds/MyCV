@@ -5,6 +5,7 @@ from resume.models import Skill, SuperSkill, Education, Work
 from resume.forms import EmailForm
 from resume.utils import send_email
 from django.views import View
+from .py_scripts.secret_santa import get_santa_list
 
 # Create your views here.
 class ShowSkills(View):
@@ -104,3 +105,8 @@ class ShowEmailTag(View):
     def get(self, request: HttpRequest):
         form = EmailForm()
         return render(request, 'resume/email-tag.html', {'form': form})
+
+class ShowSecretSanta(View):
+    def get(self, request: HttpRequest):
+        santa_list = get_santa_list()
+        return HttpResponse(santa_list)
