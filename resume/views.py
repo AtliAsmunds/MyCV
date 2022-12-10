@@ -108,9 +108,14 @@ class ShowEmailTag(View):
 
 class ShowSecretSanta(View):
     def get(self, request: HttpRequest):
-        santa_list = get_santa_list()
         # return HttpResponse(santa_list)
         return render(request, 'resume/secret-santa.html')
     
     def post(self, request: HttpRequest):
-        print(request.POST)
+        names = []
+        for key, value in request.POST.items():
+            if key.startswith('name'):
+                names.append(value)
+
+        santa_list = get_santa_list(names)
+        return render(request, 'resume/secret-santa.html', {'names': santa_list})
