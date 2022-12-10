@@ -105,6 +105,8 @@ function addPraticipant(){
 
     inputDiv.append(newLabel, $('<br>'), newInput, $('<br>'));
     inputList.append(inputDiv);
+
+    $('#remove-name').prop('disabled', false);
   })
 }
 
@@ -114,6 +116,10 @@ function removeParticipant(){
       $('.name-inputs').children().last().remove();
 
       nrOfParticipants--;
+
+      if (nrOfParticipants <= 1) {
+        $('#remove-name').prop('disabled', true)
+      }
     }
   })
 }
