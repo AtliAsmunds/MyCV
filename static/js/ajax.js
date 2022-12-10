@@ -34,6 +34,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
+var nrOfParticipants = 1;
 jQuery(function () {
     armPage('about');
     armPage('work');
@@ -42,6 +43,8 @@ jQuery(function () {
     armPage('music');
     armPage('email');
     setStars();
+    addPraticipant();
+    removeParticipant();
     $('textarea').on('input', function () {
         $(this).height("");
         var scrollHeight = $(this).prop('scrollHeight');
@@ -116,6 +119,32 @@ function armPage(elemId) {
     var elem = $("#".concat(elemId));
     elem.on("click", function () {
         renderPage(elemId);
+    });
+}
+function addPraticipant() {
+    $('#add-name').on("click", function () {
+        nrOfParticipants++;
+        var inputList = $('.name-inputs');
+        var inputDiv = $('<div>');
+        var newLabel = $('<label>');
+        var newInput = $('<input>');
+        newLabel.attr('for', "name".concat(nrOfParticipants));
+        newInput.attr({
+            type: 'text',
+            id: "name".concat(nrOfParticipants),
+            name: "name".concat(nrOfParticipants)
+        });
+        newLabel.text("Nafn ".concat(nrOfParticipants, ":"));
+        inputDiv.append(newLabel, $('<br>'), newInput, $('<br>'));
+        inputList.append(inputDiv);
+    });
+}
+function removeParticipant() {
+    $('#remove-name').on("click", function () {
+        if (nrOfParticipants > 1) {
+            $('.name-inputs').children().last().remove();
+            nrOfParticipants--;
+        }
     });
 }
 function setStars() {

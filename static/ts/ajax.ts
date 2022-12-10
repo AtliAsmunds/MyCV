@@ -1,4 +1,5 @@
 
+let nrOfParticipants = 1;
 
 jQuery(() => {
   armPage('about');
@@ -9,6 +10,9 @@ jQuery(() => {
   armPage('email');
 
   setStars();
+  addPraticipant();
+  removeParticipant();
+
 
   $('textarea').on('input', function () {
     // debugger;
@@ -78,6 +82,40 @@ function armPage(elemId: string) {
   elem.on("click", () => {
     renderPage(elemId);
   });
+}
+
+function addPraticipant(){
+  $('#add-name').on("click", () => {
+    nrOfParticipants++;
+
+    const inputList = $('.name-inputs')
+    
+    const inputDiv = $('<div>')
+    const newLabel = $('<label>');
+    const newInput = $('<input>');
+
+    newLabel.attr('for', `name${nrOfParticipants}`);
+    newInput.attr({
+      type: 'text',
+      id: `name${nrOfParticipants}`,
+      name: `name${nrOfParticipants}`
+    });
+
+    newLabel.text(`Nafn ${nrOfParticipants}:`);
+
+    inputDiv.append(newLabel, $('<br>'), newInput, $('<br>'));
+    inputList.append(inputDiv);
+  })
+}
+
+function removeParticipant(){
+  $('#remove-name').on("click", () => {
+    if (nrOfParticipants > 1) {
+      $('.name-inputs').children().last().remove();
+
+      nrOfParticipants--;
+    }
+  })
 }
 
 function setStars() {
