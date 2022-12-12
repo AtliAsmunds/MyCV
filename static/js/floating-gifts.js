@@ -12,8 +12,12 @@ function setup() {
 function draw() {
   background(50, 100, 89);
   giftList.forEach(gift => {
+    push();
     gift.move();
+    translate(gift.x, gift.y)
+    rotate(radians(gift.rotation_deg))
     gift.display();
+    pop();
   })
 }
 
@@ -23,7 +27,7 @@ class Gift {
     this.width = this.height = 30 * size;
     this.x = random(this.width / 2, windowWidth - this.width / 2);
     this.y = random(this.height / 2, windowHeight - this.height / 2);
-    this.rotation = radians(random(360));
+    this.rotation_deg = random(360);
     this.speed = random(0.5, 1);
   }
 
@@ -37,18 +41,21 @@ class Gift {
 
     this.x += this.velocity.x * this.speed;
     this.y += this.velocity.y * this.speed;
+    this.rotation_deg = (this.rotation_deg + 0.1) % 360
   }
   
   display() {
     // ellipse(this.x, this.y, this.diameter, this.diameter)
     rectMode(CENTER);
+    // translate(this.x + this.width/2, this.y + this.height/2)
     fill(30, 170, 80);
     stroke(1);
-    rect(this.x, this.y, this.width, this.height)
+    // rotate(this.rotation)
+    rect(0, 0, this.width, this.height)
     
     noStroke();
     fill(190, 70, 50)
-    rect(this.x, this.y, this.width, 10)
-    rect(this.x, this.y, 10, this.height)
+    rect(0, 0, this.width, 10)
+    rect(0, 0, 10, this.height)
   }
 }
