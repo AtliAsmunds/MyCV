@@ -44,7 +44,7 @@ class Gift {
     let diff = createVector(this.x, this.y).sub(mouseVector)
 
     if (diff.mag() <= 60) {
-      this.acc = 3;
+      if (this.acc < 3) this.acc += 0.1;
       this.velocity = diff.normalize().mult(this.acc);
     } else if (this.acc > 1) {
       this.acc -= 0.01
