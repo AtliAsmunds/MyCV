@@ -3,8 +3,8 @@ let giftList = [];
 function setup() {
   // create the canvas
   createCanvas(windowWidth, windowHeight);
-  for (let i = 0; i < 30; i++) {
-    let gift = new Gift(random(2,4), random(-100,100), random(-100,100));
+  for (let i = 0; i < 60; i++) {
+    let gift = new Gift(random(1,3), random(-100,100), random(-100,100));
     giftList.push(gift);
   }
 }
@@ -29,6 +29,7 @@ class Gift {
     this.y = random(this.height / 2, windowHeight - this.height / 2);
     this.rotation_deg = random(360);
     this.speed = random(0.5, 1);
+    this.acc = 1;
   }
 
   move() {
@@ -39,8 +40,19 @@ class Gift {
         this.velocity.y *= -1;
     }
 
+    let mouseVector = createVector(mouseX, mouseY);
+    let diff = createVector(this.x, this.y).sub(mouseVector)
+
+    if (diff.mag() <= 60) {
+      this.acc = 3;
+      this.velocity = diff.normalize().mult(this.acc);
+    } else if (this.acc > 1) {
+      this.acc -= 0.01
+      this.velocity = this.velocity.normalize().mult(this.acc)
+    }
     this.x += this.velocity.x * this.speed;
     this.y += this.velocity.y * this.speed;
+    
     this.rotation_deg = (this.rotation_deg + 0.1) % 360
   }
   
