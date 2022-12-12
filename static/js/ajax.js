@@ -126,16 +126,21 @@ function addPraticipant() {
         nrOfParticipants++;
         var inputList = $('.name-inputs');
         var inputDiv = $('<div>');
-        var newLabel = $('<label>');
-        var newInput = $('<input>');
-        newLabel.attr('for', "name".concat(nrOfParticipants));
-        newInput.attr({
+        var nameInput = $('<input>');
+        var mailInput = $('<input>');
+        nameInput.attr({
             type: 'text',
             id: "name".concat(nrOfParticipants),
-            name: "name".concat(nrOfParticipants)
+            name: "name".concat(nrOfParticipants),
+            placeholder: "Nafn ".concat(nrOfParticipants)
         });
-        newLabel.text("Nafn ".concat(nrOfParticipants, ":"));
-        inputDiv.append(newLabel, $('<br>'), newInput, $('<br>'));
+        mailInput.attr({
+            type: 'email',
+            id: "mail".concat(nrOfParticipants),
+            name: "mail".concat(nrOfParticipants),
+            placeholder: "Email ".concat(nrOfParticipants)
+        });
+        inputDiv.append(nameInput, mailInput, $('<br>'));
         inputList.append(inputDiv);
         $('#remove-name').prop('disabled', false);
     });

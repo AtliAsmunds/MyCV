@@ -91,19 +91,25 @@ function addPraticipant(){
     const inputList = $('.name-inputs')
     
     const inputDiv = $('<div>')
-    const newLabel = $('<label>');
-    const newInput = $('<input>');
+    const nameInput = $('<input>');
+    const mailInput = $('<input>');
 
-    newLabel.attr('for', `name${nrOfParticipants}`);
-    newInput.attr({
+    nameInput.attr({
       type: 'text',
       id: `name${nrOfParticipants}`,
-      name: `name${nrOfParticipants}`
+      name: `name${nrOfParticipants}`,
+      placeholder: `Nafn ${nrOfParticipants}`
     });
 
-    newLabel.text(`Nafn ${nrOfParticipants}:`);
+    mailInput.attr({
+      type: 'email',
+      id: `mail${nrOfParticipants}`,
+      name: `mail${nrOfParticipants}`,
+      placeholder: `Email ${nrOfParticipants}`
+    });
 
-    inputDiv.append(newLabel, $('<br>'), newInput, $('<br>'));
+    // inputDiv.append(newLabel, $('<br>'), newInput, $('<br>'));
+    inputDiv.append(nameInput, mailInput, $('<br>'));
     inputList.append(inputDiv);
 
     $('#remove-name').prop('disabled', false);

@@ -9,13 +9,13 @@ SENDER = os.getenv('GMAIL_USER')
 PASSWORD = os.getenv('GMAIL_PASS')
 RECEIVER = os.getenv('GMAIL_END')
 
-def send_email(name: str, email: str, message: str):
+def send_email(name: str, reason: str, message: str, receiver=RECEIVER):
 
     msg = EmailMessage()
     msg.set_content(message)
-    msg['Subject'] = f"{name} || {email}"
+    msg['Subject'] = f"{name} || {reason}"
     msg['From'] = SENDER
-    msg['To'] = RECEIVER
+    msg['To'] = receiver
 
     context = ssl.create_default_context()
 

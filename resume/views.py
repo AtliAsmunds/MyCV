@@ -113,9 +113,20 @@ class ShowSecretSanta(View):
     
     def post(self, request: HttpRequest):
         names = []
+        # print(request.POST)
         for key, value in request.POST.items():
             if key.startswith('name'):
-                names.append(value)
+                nr = key[4:]
+                mail = request.POST.get(f'mail{nr}')
+                names.append((value, mail))
 
         santa_list = get_santa_list(names)
-        return render(request, 'resume/secret-santa.html', {'names': santa_list})
+
+        for giver, receiver in santa_list:
+            giver_name, giver_email = giver
+            receiver_name = receiver[0]
+            message = f"Leynivinur þinn er {receiver_name}"
+
+            was_sent = send_email(giver_name, 'Secret Santa', message, giver_email)
+
+        return render(request, 'resume/secret-santa.html', {'was_sent': was_sent})
