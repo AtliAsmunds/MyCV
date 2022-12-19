@@ -31,7 +31,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True if os.getenv('DEBUG') == 'TRUE' else False
 
-ALLOWED_HOSTS = ['atliasmunds.pythonanywhere.com', '127.0.0.1']
+ALLOWED_HOSTS = ['atliasmunds.pythonanywhere.com', '127.0.0.1', 'www.atliasmunds.org']
 
 
 # Application definition
