@@ -2,6 +2,7 @@
 .venv
 .vscode
 .env
+.python-version
 
 # Database
 db.sqlite3
